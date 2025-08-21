@@ -3,331 +3,350 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tajbaba | Portfolio</title>
+  <title>MOHD Tajbaba | Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Styles -->
   <style>
-    /* Reset & basic styling */
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body,
+    html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #000000; /* Black background */
+      color: #eee; /* Light text for contrast */
     }
 
-    body {
-      background: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
+    /* Wrapper for nav + hero */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navigation */
+    /* Navbar */
     nav {
-      background: #222;
-      color: white;
+      width: 100%;
       padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(25,25,25,0.85);
+      box-shadow: 0 2px 8px #111;
+      border-radius: 0 0 12px 12px;
     }
-
     nav .logo {
       font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      cursor: default;
+      font-size: 1.4rem;
+      color: #ffd700;
     }
-
     nav ul {
-      display: flex;
       list-style: none;
+      display: flex;
       gap: 1.5rem;
     }
-
-    nav ul li a {
-      color: #ddd;
+    nav a {
+      text-decoration: none;
+      color: #eee;
       font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 4px;
-      transition: background 0.3s ease;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
     }
 
-    nav ul li a:hover {
-      background: #555;
-      color: white;
-    }
-
-    /* Container for page content */
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    /* Section headings */
-    h1, h2 {
-      color: #222;
-      margin-bottom: 1rem;
-    }
-
-    /* Homepage */
-    #home {
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 4rem 1rem 6rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 8px;
-      margin-bottom: 3rem;
+      width: 100%;
+      padding: 2rem;
     }
-
-    #home h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    #home p {
-      font-size: 1.25rem;
+    .hero-content {
       max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      border: 4px solid #ffd700;
+      box-shadow: 0 0 12px #ffd700;
+    }
+    .highlight {
+      color: #ffd700;
+    }
+    .hero-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .btn-main,
+    .btn-alt {
+      padding: 0.7rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .btn-main {
+      background: #ffd700;
+    }
+    .btn-main:hover {
+      background: #e6c200;
+    }
+    .btn-alt {
+      background: #222;
+      color: #eee;
+    }
+    .btn-alt:hover {
+      background: #444;
+      color: #ffd700;
     }
 
-    /* Skills */
+    /* Skills Section */
+    section.container {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700;
+    }
     #skills ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       list-style: none;
-      padding: 0;
+    }
+    #skills li {
+      background: rgba(255, 215, 0, 0.2);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #222;
+      box-shadow: 0 0 8px #ffd700;
+      transition: transform 0.3s ease;
+    }
+    #skills li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    /* Projects Section */
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 2rem;
     }
-
-    #skills ul li {
-      background: white;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      color: #444;
-      min-width: 120px;
-      text-align: center;
-      transition: transform 0.2s ease;
-      cursor: default;
-    }
-
-    #skills ul li:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
-    }
-
-    /* Projects */
-    #projects .project-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.5rem;
-    }
-
     .project {
-      background: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
+      background: rgba(255, 215, 0, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #ffd700;
+      max-width: 280px;
+      color: #222;
+      transition: transform 0.4s ease;
     }
-
     .project:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #ffd700;
     }
-
-    .project h3 {
-      margin-bottom: 0.75rem;
-      color: #5a2a83;
-    }
-
-    .project p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-
-    .project a {
-      font-weight: 600;
-      color: #667eea;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    .project a:hover {
-      border-color: #667eea;
-    }
-
-    /* Contact */
-    #contact form {
-      background: white;
-      padding: 2rem 2.5rem;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    #contact form label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: #333;
-    }
-
-    #contact form input,
-    #contact form textarea {
+    .project img {
       width: 100%;
-      padding: 0.7rem 1rem;
-      margin-bottom: 1.25rem;
-      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .project h3 {
+      margin: 0.5rem 0;
+    }
+    .project a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .project a:hover {
+      color: #444;
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form input,
+    form textarea {
+      padding: 0.8rem;
+      border: 1px solid #555;
       border-radius: 6px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
+      background: #111;
+      color: #eee;
     }
-
-    #contact form input:focus,
-    #contact form textarea:focus {
-      border-color: #667eea;
-      outline: none;
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #888;
     }
-
-    #contact form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    #contact form button {
-      background: #667eea;
-      color: white;
-      font-weight: 700;
+    form button {
+      padding: 0.8rem;
       border: none;
-      padding: 0.8rem 1.5rem;
+      background: #ffd700;
+      color: #222;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s ease;
-      width: 100%;
-      font-size: 1.1rem;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
     }
-
-    #contact form button:hover {
-      background: #5a67d8;
+    form button:hover {
+      background-color: #e6c200;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 1rem 1rem;
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 3rem;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
     }
-
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      nav ul {
-        gap: 1rem;
-      }
-
-      #home h1 {
-        font-size: 2.2rem;
-      }
-
-      #skills ul li {
-        min-width: 100px;
-        font-size: 0.9rem;
-      }
-
-      #projects .project-list {
-        grid-template-columns: 1fr;
-      }
+    .social a {
+      margin: 0 0.5rem;
+      color: #ffd700;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    .social a:hover {
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Tajbaba</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">MOHD Tajbaba</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" id="darkToggle"><i class="fas fa-moon"></i></a></li>
+      </ul>
+    </nav>
 
-  <section id="home" class="container">
-    <h1>Hello, I'm Tajbaba</h1>
-    <p>Advanced web developer specializing in building clean, modern, and responsive websites. Passionate about creating seamless user experiences and efficient code.</p>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content" data-aos="zoom-in">
+        <img src="assets/profile.png" alt="profile" class="profile-pic" />
+        <h1>Hello, I'm <span class="highlight">MOHD Mohd Tajbaba</span></h1>
+        <h2 class="typing"></h2>
+        <p>Crafting high-performance modern websites with stunning design and intuitive UX.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-main">🌟 View My Work</a>
+          <a href="resume.pdf" class="btn-alt" target="_blank">📄 Download Resume</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
+  <!-- Skills -->
   <section id="skills" class="container">
-    <h2>Skills</h2>
+    <h2 data-aos="fade-up">Skills</h2>
     <ul>
-      <li>HTML5</li>
-      <li>CSS3 & Sass</li>
-      <li>JavaScript (ES6+)</li>
-      <li>React.js</li>
-      <li>Node.js</li>
-      <li>Express</li>
-      <li>MongoDB</li>
-      <li>Git & GitHub</li>
-      <li>Webpack</li>
-      <li>Responsive Design</li>
+      <li data-aos="flip-left">HTML5</li>
+      <li data-aos="flip-left">CSS3 & Sass</li>
+      <li data-aos="flip-left">JavaScript (ES6+)</li>
+      <li data-aos="flip-left">React.js</li>
+      <li data-aos="flip-left">Node.js</li>
+      <li data-aos="flip-left">Express</li>
+      <li data-aos="flip-left">MongoDB</li>
+      <li data-aos="flip-left">Git & GitHub</li>
+      <li data-aos="flip-left">Webpack</li>
+      <li data-aos="flip-left">Responsive Design</li>
     </ul>
   </section>
 
+  <!-- Projects -->
   <section id="projects" class="container">
-    <h2>Projects</h2>
+    <h2 data-aos="fade-up">Featured Projects</h2>
     <div class="project-list">
-      <div class="project">
+      <div class="project" data-aos="fade-up-right">
+        <img src="assets/project1.png" alt="project" />
         <h3>Portfolio Website</h3>
-        <p>A fully responsive personal portfolio built with HTML, CSS, and JavaScript showcasing projects and skills.</p>
-        <a href="https://github.com/tajbaba/portfolio" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <p>A responsive portfolio with glassmorphism UI & animations.</p>
+        <a href="https://github.com/tajbaba/portfolio" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       </div>
-
-      <div class="project">
+      <div class="project" data-aos="fade-up">
+        <img src="assets/project2.png" alt="project" />
         <h3>Task Manager App</h3>
-        <p>A MERN stack app for managing tasks with user authentication, real-time updates, and a sleek UI.</p>
-        <a href="https://github.com/tajbaba/task-manager" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <p>Full-featured MERN stack app with real-time updates.</p>
+        <a href="https://github.com/tajbaba/task-manager" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       </div>
-
-      <div class="project">
+      <div class="project" data-aos="fade-up-left">
+        <img src="assets/project3.png" alt="project" />
         <h3>Blog Platform</h3>
-        <p>Custom blogging platform with Markdown support, tagging, and admin dashboard built with React and Node.js.</p>
-        <a href="https://github.com/tajbaba/blog-platform" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <p>Markdown-powered platform with admin dash & user system.</p>
+        <a href="https://github.com/tajbaba/blog-platform" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="container">
-    <h2>Contact Me</h2>
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-
-      <button type="submit">Send Message</button>
+    <h2 data-aos="fade-up">Contact Me</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" data-aos="zoom-in">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="your.email@example.com" required />
+      <textarea name="message" placeholder="Write your message here..." required></textarea>
+      <button type="submit">Send Message 🚀</button>
     </form>
   </section>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Tajbaba. All rights reserved.
+    <p>&copy; 2025 Tajbaba. All rights reserved.</p>
+    <div class="social">
+      <a href="https://github.com/tajbaba"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/tajbaba"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/tajbaba"><i class="fab fa-twitter"></i></a>
+    </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+  </script>
 </body>
 </html>
