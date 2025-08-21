@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tajbaba | Portfolio</title>
+  <style>
+    /* Reset & basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      background: #222;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      cursor: default;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #ddd;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #555;
+      color: white;
+    }
+
+    /* Container for page content */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Section headings */
+    h1, h2 {
+      color: #222;
+      margin-bottom: 1rem;
+    }
+
+    /* Homepage */
+    #home {
+      text-align: center;
+      padding: 4rem 1rem 6rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+    }
+
+    #home h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #home p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Skills */
+    #skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+    }
+
+    #skills ul li {
+      background: white;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #444;
+      min-width: 120px;
+      text-align: center;
+      transition: transform 0.2s ease;
+      cursor: default;
+    }
+
+    #skills ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
+    }
+
+    /* Projects */
+    #projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .project h3 {
+      margin-bottom: 0.75rem;
+      color: #5a2a83;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .project a {
+      font-weight: 600;
+      color: #667eea;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .project a:hover {
+      border-color: #667eea;
+    }
+
+    /* Contact */
+    #contact form {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    #contact form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    #contact form input:focus,
+    #contact form textarea:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+
+    #contact form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    #contact form button {
+      background: #667eea;
+      color: white;
+      font-weight: 700;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    #contact form button:hover {
+      background: #5a67d8;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 1rem;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      #home h1 {
+        font-size: 2.2rem;
+      }
+
+      #skills ul li {
+        min-width: 100px;
+        font-size: 0.9rem;
+      }
+
+      #projects .project-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Tajbaba</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="container">
+    <h1>Hello, I'm Tajbaba</h1>
+    <p>Advanced web developer specializing in building clean, modern, and responsive websites. Passionate about creating seamless user experiences and efficient code.</p>
+  </section>
+
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3 & Sass</li>
+      <li>JavaScript (ES6+)</li>
+      <li>React.js</li>
+      <li>Node.js</li>
+      <li>Express</li>
+      <li>MongoDB</li>
+      <li>Git & GitHub</li>
+      <li>Webpack</li>
+      <li>Responsive Design</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>A fully responsive personal portfolio built with HTML, CSS, and JavaScript showcasing projects and skills.</p>
+        <a href="https://github.com/tajbaba/portfolio" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+
+      <div class="project">
+        <h3>Task Manager App</h3>
+        <p>A MERN stack app for managing tasks with user authentication, real-time updates, and a sleek UI.</p>
+        <a href="https://github.com/tajbaba/task-manager" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+
+      <div class="project">
+        <h3>Blog Platform</h3>
+        <p>Custom blogging platform with Markdown support, tagging, and admin dashboard built with React and Node.js.</p>
+        <a href="https://github.com/tajbaba/blog-platform" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Tajbaba. All rights reserved.
+  </footer>
+
+</body>
+</html>
